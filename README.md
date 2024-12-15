@@ -1,6 +1,6 @@
 # Local Explorer - Application de découverte d'activités
 
-Cette application React permet aux utilisateurs de découvrir des activités locales adaptées à leur localisation et aux conditions météorologiques, avec une intégration de cartes pour visualiser les suggestions.
+Cette application React permet aux utilisateurs de découvrir des activités locales adaptées à leur localisation et aux conditions météorologiques, avec une l'intégration d'une carte pour visualiser les suggestions.
 
 ## Table des matières
 
@@ -49,7 +49,7 @@ L'application sera accessible sur http://localhost:3000.
 
 
 
-## Configurer les variables d'environnement
+## Lancer avec Docker
 
 ### 1. Construire l'image Docker
 ```bash
