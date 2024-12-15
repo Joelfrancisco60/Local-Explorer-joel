@@ -60,18 +60,30 @@ const SwipeCards = ({ activities, onPreferencesUpdated, onRejectedUpdated, onCom
                   <h2>{activities[currentIndex]}</h2>
                 )}
               </div>
-              {currentIndex !== activities.length - 1 && (
-                <div className="buttons">
-                  <button className="no-button" onClick={() => manualSwipe('left')}>
-                    <CrossIcon />
-                  </button>
-                  <button className="yes-button" onClick={() => manualSwipe('right')}>
-                    <HeartIcon />
-                  </button>
-                </div>
-              )}
             </TinderCard>
           </div>
+          {currentIndex !== activities.length - 1 && (
+            <div className="buttons">
+              <button
+                className="no-button"
+                onClick={(ev) => {
+                  ev.stopPropagation();
+                  manualSwipe('left');
+                }}
+              >
+                <CrossIcon />
+              </button>
+              <button
+                className="yes-button"
+                onClick={(ev) => {
+                  ev.stopPropagation();
+                  manualSwipe('right');
+                }}
+              >
+                <HeartIcon />
+              </button>
+            </div>
+          )}
         </>
       ) : null}
     </div>
