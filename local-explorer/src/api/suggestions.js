@@ -10,7 +10,9 @@ export const fetchSuggestions = async (location, weather, preferences, rejectedP
     - Activités préférées de l'utilisateur : ${preferences.join(', ')}.
     - Activités rejetées par l'utilisateur : ${rejectedPreferences.join(', ')}.
 
-    Fournis une liste de 5 activités adaptées avec leurs noms et coordonnées GPS (latitude et longitude). Les activités rejetées ne doivent pas être incluses dans la liste.
+    Fournis une liste de 5 activités adaptées avec leurs noms et coordonnées GPS (latitude et longitude). Formatte chaque ligne comme suit :
+    Nom de l'activité: Latitude, Longitude
+    Par exemple : Promenade au parc: 48.8566, 2.3522
   `;
 
   try {
@@ -30,6 +32,8 @@ export const fetchSuggestions = async (location, weather, preferences, rejectedP
       }
     );
 
+    console.log("Réponse de l'API OpenAI :", response.data);
+
     const generatedSuggestions = response.data.choices[0].message.content
       .split('\n')
       .map((line) => {
@@ -38,10 +42,10 @@ export const fetchSuggestions = async (location, weather, preferences, rejectedP
       })
       .filter(Boolean);
 
-    console.log("Suggestions générées :", generatedSuggestions);
+    console.log("Suggestions parsées :", generatedSuggestions);
     return generatedSuggestions;
   } catch (err) {
-    console.error("Erreur lors de la génération des suggestions :", err.response || err.message);
+    console.error("Erreur lors de la récupération des suggestions :", err.response || err.message);
     return [];
   }
 };
