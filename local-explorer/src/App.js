@@ -36,16 +36,6 @@ const App = () => {
     }
   }, [weather, location]);
 
-  const resetPreferences = () => {
-    setPreferences([]);
-    setRejectedPreferences([]);
-    setSuggestions([]);
-    setActivities([]);
-    setShowMap(false);
-
-    handleFetchActivities();
-  };
-
   return (
     <div className="App">
       <h1>Local Explorer</h1>
@@ -81,7 +71,10 @@ const App = () => {
               <Map
                 suggestions={suggestions}
               />
-              <button onClick={resetPreferences} className="reset-button">
+             <button
+                onClick={() => window.location.reload()}
+                className="reset-button"
+              >
                 Refaire la sélection des préférences
               </button>
             </div>
