@@ -11,8 +11,9 @@ export const fetchActivities = async (location, weather) => {
     - Météo : ${weather}.
 
     Génère une liste de 10 activités adaptées à ces conditions. 
+    Les suggestions doivent être générales (par exemple : "musée", "promenade au parc") et non spécifiques à un lieu ou à un établissement particulier. 
     Assure-toi qu'il y ait un mélange d'activités d'intérieur et d'extérieur. Les activités ne doivent pas se répéter.
-    Pour chaque activité, donne seulement son nom sans autre détail. 
+    Fournis uniquement les noms des activités sans autre détail. 
   `;
 
   try {

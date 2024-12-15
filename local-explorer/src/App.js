@@ -79,8 +79,6 @@ const App = () => {
           {showMap && (
             <div>
               <Map
-                latitude={location.latitude}
-                longitude={location.longitude}
                 suggestions={suggestions}
               />
               <button onClick={resetPreferences} className="reset-button">
