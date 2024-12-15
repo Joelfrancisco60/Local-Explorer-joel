@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TinderCard from 'react-tinder-card';
 import './styles.css';
+import { HeartIcon, CrossIcon } from './Icons';
 
 const SwipeCards = ({ activities, onPreferencesUpdated, onRejectedUpdated, onComplete }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -56,21 +57,21 @@ const SwipeCards = ({ activities, onPreferencesUpdated, onRejectedUpdated, onCom
                     <p>Appuyez sur le bouton "Recherche" pour continuer.</p>
                   </div>
                 ) : (
-                  <h3>{activities[currentIndex]}</h3>
+                  <h2>{activities[currentIndex]}</h2>
                 )}
               </div>
+              {currentIndex !== activities.length - 1 && (
+                <div className="buttons">
+                  <button className="no-button" onClick={() => manualSwipe('left')}>
+                    <CrossIcon />
+                  </button>
+                  <button className="yes-button" onClick={() => manualSwipe('right')}>
+                    <HeartIcon />
+                  </button>
+                </div>
+              )}
             </TinderCard>
           </div>
-          {currentIndex !== activities.length - 1 && (
-            <div className="buttons">
-              <button className="no-button" onClick={() => manualSwipe('left')}>
-                Non
-              </button>
-              <button className="yes-button" onClick={() => manualSwipe('right')}>
-                Oui
-              </button>
-            </div>
-          )}
         </>
       ) : null}
     </div>

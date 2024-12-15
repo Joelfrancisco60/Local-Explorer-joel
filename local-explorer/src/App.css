@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+h1 {
+  font: small-caps bold 54px/1 sans-serif;
+}
+
 .reset-button {
   margin-top: 20px;
   padding: 10px 20px;
